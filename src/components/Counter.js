@@ -6,6 +6,7 @@ const Counter = ({index, number, color, onIncrement, onDecrement, onSetColor}) =
     return (
         <div
             className="Counter"
+            onDoubleClick={() => { onSetColor(index) } }
             onClick={() => {onIncrement(index)}}        //onClick = { onIncrement(index) } 하면 Maximum update depth exceeded 오류 뜸.
             onContextMenu={
                 (e) => {
@@ -13,7 +14,6 @@ const Counter = ({index, number, color, onIncrement, onDecrement, onSetColor}) =
                     onDecrement(index);
                 }
             }
-            onDoubleClick={() => { onSetColor(index) } }
             style ={{ backgroundColor : color}}>
             { number }
         </div>
